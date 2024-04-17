@@ -91,7 +91,7 @@ def align_labels(labels, pdb_resids,label_resids=None,format='missing'):
         if format == 'sparse': # Unaligned labels are assigned category zero.
             aligned_labels = np.zeros( [sequence_length] + list(labels.shape[1:]), dtype=labels.dtype)
         elif format == 'missing': # Unaligned labels are assigned -1/nan category (unknown label, no backpropagation).
-            if labels.dtype == np.int:
+            if labels.dtype == int:
                 aligned_labels = np.zeros( [sequence_length] + list(labels.shape[1:]), dtype=labels.dtype) -1
             else:
                 aligned_labels = np.zeros( [sequence_length] + list(labels.shape[1:]), dtype=labels.dtype) + np.nan

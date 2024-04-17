@@ -16,7 +16,7 @@ def activity2percentile(filter_activity, percentiles):
     filter_percentiles = np.zeros_like(filter_activity)
     nfilters = percentiles.shape[-1]
     for n in range(nfilters):
-        filter_percentiles[...,n] = np.interp(filter_activity[...,n], percentiles[:,n],np.arange(1,101) )
+        filter_percentiles[...,n] = interp(filter_activity[...,n], percentiles[:,n],np.arange(1,101) )
     return filter_percentiles
 
 

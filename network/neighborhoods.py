@@ -485,7 +485,7 @@ def get_Frames(inputs,n_samples=None,padded=False,order='1',dipole=False,Lmax=No
             Lmax = max([len(input_) for input_ in inputs[0][:b]] )
         Lmax2 = max([len(input_) for input_ in inputs[1][:b]] )
         Ls = [len(x) for x in inputs[0][:b]]
-        triplets_ = np.zeros([b,Lmax, nindices ],dtype=np.int32)
+        triplets_ = np.zeros([b,Lmax, nindices ],dtype=int32)
         clouds_ = np.zeros([b,Lmax2,3],dtype=np.float32)
 
         for b_ in range(b):

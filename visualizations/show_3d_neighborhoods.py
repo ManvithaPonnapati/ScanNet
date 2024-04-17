@@ -11,7 +11,7 @@ def rgb_to_hex(rgb):
         rgb = np.array(rgb)[:3]
         if rgb.max() < 1:
             rgb *= 256
-        rgb = np.floor(rgb).astype(np.int)
+        rgb = np.floor(rgb).astype(int)
         return '#%02x%02x%02x' % (rgb[0], rgb[1], rgb[2])
 
 def orientation2euler(bond_orientation, axis=2):
@@ -238,9 +238,9 @@ def get_neighborhood(
         else:
             try:
                 index = np.nonzero(
-                                   (resids[atom_indices[:,0], 0].astype(np.int) == model) &
+                                   (resids[atom_indices[:,0], 0].astype(int) == model) &
                                    (resids[atom_indices[:,0], 1] == chain) &
-                                   (resids[atom_indices[:,0], 2].astype(np.int) == resnumber) &
+                                   (resids[atom_indices[:,0], 2].astype(int) == resnumber) &
                                    (atom_ids == protein_chemistry.atom_to_index[atom])
                                    )[0][0]
             except:
@@ -250,9 +250,9 @@ def get_neighborhood(
             index = resindex
         else:
             try:
-                index = np.nonzero( (resids[:,0].astype(np.int) == model) &
+                index = np.nonzero( (resids[:,0].astype(int) == model) &
                                     (resids[:,1]==chain) &
-                                    (resids[:,2].astype(np.int)==resnumber)
+                                    (resids[:,2].astype(int)==resnumber)
                                     )[0][0]
             except:
                 raise ValueError('Residue #%s/%s:%s not found' % (model, chain, resnumber))
@@ -271,8 +271,8 @@ def get_neighborhood(
     atom_positions, atom_triplets =  neighborhoods.get_LocalNeighborhood([ [frames[0]], [atom_clouds[atom_triplets[:,0]]]  ],{'self_neighborhood':False,'Kmax': Kmax},attributes= [atom_triplets],
                                         )
 
-    atom_types = atom_types.astype(np.int)
-    atom_triplets = atom_triplets.astype(np.int)
+    atom_types = atom_types.astype(int)
+    atom_triplets = atom_triplets.astype(int)
 
 
     atom_positions = atom_positions[0][0]
@@ -330,9 +330,9 @@ def get_neighborhood_aa(
         index = resindex
     else:
         try:
-            index = np.nonzero( (resids[:,0].astype(np.int) == model) &
+            index = np.nonzero( (resids[:,0].astype(int) == model) &
                                 (resids[:,1]==chain) &
-                                (resids[:,2].astype(np.int)==resnumber)
+                                (resids[:,2].astype(int)==resnumber)
                                 )[0][0]
         except:
             raise ValueError('Residue #%s/%s:%s not found' % (model, chain, resnumber))
