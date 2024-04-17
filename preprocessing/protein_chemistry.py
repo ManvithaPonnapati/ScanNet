@@ -325,7 +325,7 @@ dictionary_covalent_bonds = {
 
 dictionary_covalent_bonds_numba = Dict.empty(
     key_type=types.unicode_type,
-    value_type=types.int[:],
+    value_type=types.int32[:],
 )
 
 for aa,atom_covalent_bonds in dictionary_covalent_bonds.items():
