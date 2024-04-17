@@ -325,12 +325,12 @@ dictionary_covalent_bonds = {
 
 dictionary_covalent_bonds_numba = Dict.empty(
     key_type=types.unicode_type,
-    value_type=types.int32[:],
+    value_type=types.int[:],
 )
 
 for aa,atom_covalent_bonds in dictionary_covalent_bonds.items():
     for atom,bonds in atom_covalent_bonds.items():
-        bonds_num = -1 * np.ones(3,dtype=int32)
+        bonds_num = -1 * np.ones(3,dtype=int)
         for l,bond in enumerate(bonds):
             if bond is not None:
                 bonds_num[l] = atom_to_index[bond]
