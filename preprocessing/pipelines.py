@@ -35,7 +35,7 @@ database_nchunks['disprot'] = 1
 database_nchunks['SabDab'] = 1
 
 curr_float = np.float32
-curr_int = int16
+curr_int = np.int16
 
 dict_dssp2num = {'H': 0, 'B': 1, 'E': 2,
                  'G': 3, 'I': 4, 'T': 5, 'S': 6, '-': 7}

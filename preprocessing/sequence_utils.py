@@ -9,7 +9,7 @@ from time import sleep
 import sys
 
 curr_float = np.float32
-curr_int = int16
+curr_int = np.int16
 
 aa = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
       'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V',  'W', 'Y', '-']
