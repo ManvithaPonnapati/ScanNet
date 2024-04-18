@@ -298,7 +298,7 @@ class Pipeline():
                     outputs = np.array(outputs)
             else:
                 outputs = None
-            failed_samples = list(np.concatenate([np.array(batch_outputs[k][2],dtype=int)+k*batch_size for k in range(ncores)]))
+            failed_samples = list(np.concatenate([np.array(batch_outputs[k][2],dtype=np.int32)+k*batch_size for k in range(ncores)]))
             return inputs,outputs,failed_samples
         else:
             inputs = []

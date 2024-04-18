@@ -8,8 +8,8 @@ def get_atom_frameCloud(sequence, atom_coordinates, atom_ids):
     atom_clouds = np.concatenate(atom_coordinates, axis=0)
     atom_attributes = np.concatenate(atom_ids, axis=-1)
     atom_triplets = np.array(_get_atom_triplets(sequence, List(atom_ids), dictionary_covalent_bonds_numba),
-                             dtype=int)
-    atom_indices = np.concatenate([np.ones(len(atom_ids[l]), dtype=int) * l for l in range(len(sequence))],
+                             dtype=np.int32)
+    atom_indices = np.concatenate([np.ones(len(atom_ids[l]), dtype=np.int32) * l for l in range(len(sequence))],
                                   axis=-1)[:, np.newaxis]
     return atom_clouds, atom_triplets, atom_attributes, atom_indices
 
@@ -84,7 +84,7 @@ def get_aa_frameCloud(atom_coordinates, atom_ids, verbose=True, method='triplet_
     aa_clouds, aa_triplets = get_aa_frameCloud_(List(atom_coordinates), List(atom_ids), verbose=verbose)
     aa_indices = np.arange(len(atom_coordinates)).astype(int32)[:, np.newaxis]
     aa_clouds = np.array(aa_clouds)
-    aa_triplets = np.array(aa_triplets, dtype=int)
+    aa_triplets = np.array(aa_triplets, dtype=np.int32)
     return aa_clouds, aa_triplets, aa_indices
 
 
@@ -411,7 +411,7 @@ if __name__ == '__main__':
 
     atom_clouds_filled, atom_triplets_filled = add_virtual_atoms(atom_clouds, atom_triplets, verbose=True)
     aa_clouds, aa_triplets, aa_indices = get_aa_frameCloud(atom_coordinates, atom_ids, verbose=True)
-    aa_attributes = np.array([aa_to_index[aa] for aa in sequence], dtype=int)
+    aa_attributes = np.array([aa_to_index[aa] for aa in sequence], dtype=np.int32)
 
     inputs2network = [
         aa_triplets,

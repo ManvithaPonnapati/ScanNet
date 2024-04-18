@@ -515,9 +515,9 @@ def ComputeResidueHSE(backbone_coordinates, radius=13):
     cbetas = backbone_coordinates[:, -1, :]
     calpha_distances = distance(calphas, calphas)
 
-    HalfSphere_up = np.zeros(nResidues, dtype=int)
-    HalfSphere_down = np.zeros(nResidues, dtype=int)
-    Coordination = np.zeros(nResidues, dtype=int)
+    HalfSphere_up = np.zeros(nResidues, dtype=np.int32)
+    HalfSphere_down = np.zeros(nResidues, dtype=np.int32)
+    Coordination = np.zeros(nResidues, dtype=np.int32)
     for i in range(nResidues):
         neighbor_residues = (calpha_distances[i] < radius) & (
             calpha_distances[i] > 0)
