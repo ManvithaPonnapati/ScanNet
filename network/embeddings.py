@@ -1,4 +1,4 @@
-from keras.engine.base_layer import Layer
+from keras.layers import Layer
 from keras import backend as K
 from keras.constraints import NonNeg
 from keras.initializers import Zeros,TruncatedNormal,Ones,RandomUniform
