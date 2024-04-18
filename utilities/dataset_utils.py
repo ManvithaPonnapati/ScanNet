@@ -268,7 +268,7 @@ def build_dataset(
 
     env = {}
     for field in fields:
-        env['all_%ss'%field] = np.array(locals()['all_%ss'%field],dtype=np.object)
+        env['all_%ss'%field] = np.array(locals()['all_%ss'%field],dtype=object)
     env['all_origins'] = np.array(list_origins)
     location = pipeline_folder + dataset_name + '_raw.data'
     io_utils.save_pickle(env,location)

@@ -16,7 +16,7 @@ def stack_list_of_arrays(arrays,padded=True):
         if padded:
             return np.concatenate(list(arrays), axis=0)
         else:
-            return np.array(list(arrays), dtype=np.object)
+            return np.array(list(arrays), dtype=object)
 
 
 
@@ -363,10 +363,10 @@ class grouped_Predictor_wrapper(Predictor_wrapper):
         if multi_valued:
             nexamples = sum([len(group) for group in groups[0]])
             noutputs = len(grouped_outputs)
-            outputs = [ np.array([None for _ in range(nexamples)],dtype=np.object) for _ in range(noutputs) ]
+            outputs = [ np.array([None for _ in range(nexamples)],dtype=object) for _ in range(noutputs) ]
         else:
             nexamples = sum([len(group) for group in groups])
-            outputs = np.array([None for _ in range(nexamples)],dtype=np.object)
+            outputs = np.array([None for _ in range(nexamples)],dtype=object)
             noutputs = 1
         if multi_valued:
             for n in range(noutputs):
