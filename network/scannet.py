@@ -128,9 +128,7 @@ def neighborhood_embedding(
         input2localneighborhood = [frames, sequence_indices, attributes]
     else:
         input2localneighborhood = [frames, attributes]
-
-    print(input2localneighborhood,"input")
-    print(input2localneighborhood[0].shape)
+    print(input2localneighborhood is None,"HERE")
     local_coordinates, local_attributes = neighborhoods.LocalNeighborhood(Kmax=Kmax,
                                                                           coordinates=coordinates,
                                                                           index_distance_max=index_distance_max,
