@@ -448,6 +448,7 @@ def get_LocalNeighborhood(inputs, neighborhood_params, flat=False, n_samples=100
 
     keras_inputs = [Input(shape=inputs_.shape[1:]) for inputs_ in inputs]
     masked_keras_inputs = [Masking()(keras_inputs_) for keras_inputs_ in keras_inputs]
+    print(masked_keras_inputs,"F")
     local_coordinates, local_attributes = LocalNeighborhood(
         **neighborhood_params)(masked_keras_inputs)
 
