@@ -194,8 +194,8 @@ class LocalNeighborhood(Layer):
             self.rotations = tf.constant(rotations)
         super(LocalNeighborhood, self).build(input_shape)
 
-    def call(self, inputs, mask=None):
-
+    def call(self, a,b, mask=None):
+        inputs = [a,b]
         if mask is None:
             mask = [None for _ in inputs]
 
@@ -450,7 +450,7 @@ def get_LocalNeighborhood(inputs, neighborhood_params, flat=False, n_samples=100
     masked_keras_inputs = [Masking()(keras_inputs_) for keras_inputs_ in keras_inputs]
     print(masked_keras_inputs,"F")
     local_coordinates, local_attributes = LocalNeighborhood(
-        **neighborhood_params)(masked_keras_inputs)
+        **neighborhood_params)(masked_keras_inputs[0],masked_keras_inputs[1])
 
     first_layer = Model(
         inputs=keras_inputs, outputs=[local_coordinates, local_attributes])

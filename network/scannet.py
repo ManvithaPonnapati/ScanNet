@@ -130,12 +130,12 @@ def neighborhood_embedding(
         input2localneighborhood = [frames, attributes]
 
     print(input2localneighborhood,"input")
-    print(input2localneighborhood.shape)
+    print(input2localneighborhood[0].shape)
     local_coordinates, local_attributes = neighborhoods.LocalNeighborhood(Kmax=Kmax,
                                                                           coordinates=coordinates,
                                                                           index_distance_max=index_distance_max,
                                                                           nrotations=nrotations,
-                                                                          name='neighborhood_%s'%scale)(input2localneighborhood)
+                                                                          name='neighborhood_%s'%scale)(input2localneighborhood[0],input2localneighborhood[1])
 
     # Gaussian embedding of local coordinates.
     embedded_local_coordinates = embeddings.GaussianKernel(Ngaussians,
