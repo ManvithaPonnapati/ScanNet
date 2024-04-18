@@ -796,13 +796,13 @@ if __name__ == '__main__':
         model = Model(inputs=[triplet, cloud], outputs=frames)
         return model
 
-model = wrappers.grouped_Predictor_wrapper(keras_frames,
-                                           Lmax=20,
-                                           multi_inputs=True,
-                                           input_type=['triplets', 'points'],
-                                           Lmaxs=[20, 3 * 20])
+    model = wrappers.grouped_Predictor_wrapper(keras_frames,
+                                               Lmax=20,
+                                               multi_inputs=True,
+                                               input_type=['triplets', 'points'],
+                                               Lmaxs=[20, 3 * 20])
 
-all_frames = model.predict([all_triplets, all_clouds], return_all=True, batch_size=1)
+    all_frames = model.predict([all_triplets, all_clouds], return_all=True, batch_size=1)
 
-for i, frame in enumerate(all_frames):
-    print(i, (frame[:, 1:].max(0) - frame[:, 1:].min(0)).max())
+    for i, frame in enumerate(all_frames):
+        print(i, (frame[:, 1:].max(0) - frame[:, 1:].min(0)).max())
