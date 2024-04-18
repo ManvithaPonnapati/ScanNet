@@ -130,6 +130,7 @@ def neighborhood_embedding(
         input2localneighborhood = [frames, attributes]
 
     print(input2localneighborhood,"input")
+    print(input2localneighborhood.shape)
     local_coordinates, local_attributes = neighborhoods.LocalNeighborhood(Kmax=Kmax,
                                                                           coordinates=coordinates,
                                                                           index_distance_max=index_distance_max,
