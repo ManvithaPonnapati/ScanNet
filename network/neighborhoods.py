@@ -1,4 +1,4 @@
-from keras.base_layer import Layer
+from keras.layers import Layer
 from keras import backend as K
 import tensorflow as tf
 import numpy as np
